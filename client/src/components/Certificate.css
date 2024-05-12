@@ -1,0 +1,15 @@
+.name{
+    position: absolute;
+        top: 800.30px;
+    width: 100%;
+    text-align: center;
+    text-align: center;
+    font-family: "Allison";
+    font-size: 190px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #4285F4;
+    z-index: 1;
+    background-color: #fff;
+}

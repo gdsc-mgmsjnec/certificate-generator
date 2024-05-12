@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import "./Hero.css"
+import "./Hero.css";
+import html2canvas from "html2canvas";
+import jsPdf from "jspdf";
 import axios from 'axios';
+
 
 const API_key = "Pj_$jammy_techTeam_GDSC2024";
 
 
 function Hero(){
     const [inutEmail, getEmail] = useState("")
-
+    
     function handleChange(event){
         getEmail(event.target.value)
     }
@@ -20,6 +23,8 @@ function Hero(){
                 "email":inutEmail
             }
         });
+
+        getEmail("")
         alert(result.data.email);
     }
 
@@ -32,6 +37,7 @@ function Hero(){
             <input onChange={handleChange} type="email" name="email" id="email" value={inutEmail} placeholder="Enter your Email..." />
             <button type='submit'>Submit</button>
         </form>
+       
     </main>
 }
 
