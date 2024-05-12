@@ -11,7 +11,8 @@ Streamline your GDSC event certificate creation process with this user-friendly 
 * **Easy Customization:** Customize the certificate template to match your GDSC's branding and event details. Minor code adjustments are required for specific customizations.
 * **User-Friendly Interface:** Participants can easily download their certificates by entering their email address on the app's home page.
 
-___
+<br/>
+
 
 #### Getting Started:
 
@@ -70,13 +71,14 @@ npm install
     npm run dev
 ```
 
-___
+<br />
 
 #### Authors
 
 1.  *[Parth Jamkhedkar](https://www.github.com/parth-cse)*
 
-___
+<br />
+
 #### License**
 
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
