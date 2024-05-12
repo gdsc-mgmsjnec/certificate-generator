@@ -5,7 +5,7 @@ import axios from 'axios';
 const API_key = "Pj_$jammy_techTeam_GDSC2024";
 
 
-function Hero(){
+function Hero(props){
     const [inutEmail, getEmail] = useState("")
 
     function handleChange(event){
@@ -18,9 +18,14 @@ function Hero(){
         const result = await axios.get("http://localhost:3000/",{
             params:{
                 "email":inutEmail
+            },
+            headers:{
+                "x-access-token": API_key
             }
         });
-        alert(result.data.email);
+        let name=result.data.name;
+        props.getname(name);
+        props.download()
     }
 
     return <main>

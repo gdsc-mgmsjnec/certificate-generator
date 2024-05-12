@@ -4,12 +4,12 @@ import jsPdf from "jspdf";
 import "./Certificate.css"
 
 
-function Certificate(){
+function Certificate(props){
     const pdfRef = useRef();
 
-    function downloadPdf(){
+    async function downloadPdf(){
         const input = pdfRef.current;
-        html2canvas(input).then((canvas)=>{
+        await html2canvas(input).then((canvas)=>{
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPdf('p', 'mm', 'a4', true);
             const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -22,13 +22,21 @@ function Certificate(){
             pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
             pdf.save('certificate.pdf');
         });
+
+        alert("Certificate Downloaded, Thank You! 😊")
+
+        props.goBack();
     }
 
-    return(
-        <div ref={pdfRef}>
-        <img style={{width: "100%"}} onClick={downloadPdf} src="/PawanKumar.png" alt="" />
-        <h1 className="name">Parth Jamkhedkar</h1>
+    return(<>
+        <div className="download-btn">
+            <button onClick={downloadPdf}>Download</button>
         </div>
+        <div ref={pdfRef}>
+            <img style={{width: "100%"}} src="/PawanKumar.png" alt="" />
+            <h1 className="name">{props.certName}</h1>
+        </div>
+        </>
     )
     
 }

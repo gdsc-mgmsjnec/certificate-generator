@@ -60,4 +60,5 @@ button{
     line-height: normal;
     color: #FFF;
     border: none;
+    cursor: pointer;
 }

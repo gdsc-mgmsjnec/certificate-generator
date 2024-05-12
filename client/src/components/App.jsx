@@ -6,17 +6,19 @@ import Hero from "./Hero";
 import Certificate from "./Certificate"
 
 function App(){
-  const [displayForm, setDisplayFrom] = useState(false);
+  const [displayForm, setDisplayFrom] = useState(true);
 
   function handleDisplay(){
     setDisplayFrom(!displayForm);
   }
 
+  const [name, getName]=useState("");
+
   return displayForm ? <>
     <HeaderLogo />
-    <Hero />
+    <Hero download={handleDisplay} getname={getName} />
     <Footer />
-  </> : <Certificate />
+  </> : <Certificate certName={name} goBack={handleDisplay} />
 }
 
 export default App;
