@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import HeaderLogo from "./HeaderLogo";
 import Footer from "./Footer";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Hero from "./Hero";
-import Certificate from "./Certificate";
-
+import Certificate from "./Certificate"
 
 function App(){
-  const display = false
+  const [displayForm, setDisplayFrom] = useState(false);
 
-  return <div>
-    { display ? <><HeaderLogo />
+  function handleDisplay(){
+    setDisplayFrom(!displayForm);
+  }
+
+  return displayForm ? <>
+    <HeaderLogo />
     <Hero />
     <Footer />
-   <Certificate.jsx /></> : <Certificate /> }
-
-   </div>
+  </> : <Certificate />
 }
 
 export default App;
