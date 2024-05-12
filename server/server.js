@@ -31,10 +31,10 @@ app.get("/", async (req, res) =>{
                 const dbData = result.rows[0];
                 res.json(dbData);
             }else{
-                res.json(null);
+                res.json(null)
             }
         }catch(err){
-            res.json({"Error" : err})
+            res.json(null);
         }
     }else{
         res.status(401).json({"Error":"Unauthorised, Access not Allowed"})

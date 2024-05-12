@@ -14,18 +14,26 @@ function Hero(props){
 
     async function handleSubmit(event){
         event.preventDefault();
-
-        const result = await axios.get("http://localhost:3000/",{
-            params:{
-                "email":inutEmail
-            },
-            headers:{
-                "x-access-token": API_key
+        try{
+            const result = await axios.get("http://localhost:3000/",{
+                params:{
+                    "email":inutEmail
+                },
+                headers:{
+                    "x-access-token": import.meta.env.VITE_API_KEY
+                }
+            });
+            console.log(result.data);
+            if(result.data){
+                let name=result.data.name;
+                props.getname(name);
+                props.download();
+            }else{
+                alert("Please Enter Registered Email Address Only");
             }
-        });
-        let name=result.data.name;
-        props.getname(name);
-        props.download()
+        }catch(err){
+            alert("Error: Unauthorized Access")
+        }
     }
 
     return <main>
