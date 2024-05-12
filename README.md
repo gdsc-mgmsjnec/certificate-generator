@@ -1,7 +1,6 @@
 ![Screenshot of Home Page](./other-assets/gdsc-jnec.png)
 # GDSC Certificate Generator - Automate Your Participant Recognition
 
-****
 
 Streamline your GDSC event certificate creation process with this user-friendly Node.js and React.js web application! This app eliminates the tedious task of manually typing names, allowing you to effortlessly generate personalized certificates for all participants.
 
