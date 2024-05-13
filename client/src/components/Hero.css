@@ -2,7 +2,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 165px 0px;
+    margin: 165px 0px 0px 0px;
     gap: 80px;
 }
 
@@ -61,4 +61,79 @@ button{
     color: #FFF;
     border: none;
     cursor: pointer;
+}
+
+@media (max-width: 1200px){
+    main{
+        margin-top: 200px;
+    }
+
+    main h1{
+        font-size: 40px;
+    }
+
+    main h2{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    main{
+        margin-top: 50px;
+    }
+
+    main form{
+        gap: 30px;
+    }
+
+    input{
+        width: 380px;
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+
+    main button{
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 650px){
+    main h1{
+        font-size: 30px;
+    }
+
+    main h2{
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    main{
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px){
+    main{
+        margin-top: 15px;
+        gap: 100px
+    }
+
+    main h1{
+        display: none;
+    }
+
+    main h2{
+        display: none;
+    }
+
+    input{
+        padding: 21px 20px;
+        width: 70%;
+    }
+
+    button{
+        padding: 30px 20px;
+        width: 70%;
+
+    }
 }

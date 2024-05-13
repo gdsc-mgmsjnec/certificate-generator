@@ -3,5 +3,21 @@
         top: 50px;
         left: 70px;
         width: 250px;
+}
 
+@media (max-width: 800px){
+    .Logo {
+        position: static;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 480px){
+    .Logo{
+        width: 50%;
+    }
 }
