@@ -1,6 +1,6 @@
 .name{
-    position: absolute;
-        top: 950.30px;
+    position:relative;
+        top: -1350px;
     width: 100%;
     text-align: center;
     text-align: center;
@@ -33,3 +33,4 @@ button{
     justify-content: center;
     margin: 70px 0px;
 }
+
