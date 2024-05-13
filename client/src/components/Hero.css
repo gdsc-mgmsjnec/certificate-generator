@@ -118,13 +118,6 @@ button{
         gap: 100px
     }
 
-    main h1{
-        display: none;
-    }
-
-    main h2{
-        display: none;
-    }
 
     input{
         padding: 21px 20px;
