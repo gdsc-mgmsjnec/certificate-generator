@@ -28,6 +28,7 @@ function Certificate(props){
         props.goBack();
     }
 
+    const customStyle=props.certName.length>20 ? { fontSize: "150px" } : null;
 
     return(<>
         <div className="download-btn">
@@ -35,7 +36,7 @@ function Certificate(props){
         </div>
         <div ref={pdfRef}>
             <img style={{width: "100%"}} src="/certificate_template.png" alt="" />
-            <h1 style={props.certName.length>20 ? { fontSize: "150px" } : {fontSize: "190px"}} className="name">{props.certName}</h1>
+            <h1 style={customStyle} className="name">{props.certName}</h1>
         </div>
         </>
     )
