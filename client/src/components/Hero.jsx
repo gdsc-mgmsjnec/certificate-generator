@@ -15,7 +15,7 @@ function Hero(props){
     async function handleSubmit(event){
         event.preventDefault();
         try{
-            const result = await axios.get("http://localhost:3000/",{
+            const result = await axios.get(import.meta.env.VITE_API_URL,{
                 params:{
                     "email":inutEmail
                 },

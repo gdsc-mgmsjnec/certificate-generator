@@ -26,7 +26,7 @@ app.get("/", async (req, res) =>{
         const data = req.query.email;
         console.log(data)
         try{
-            const result = await db.query("SELECT name FROM enrollements WHERE email = $1", [data]);
+            const result = await db.query("SELECT name FROM enrollements WHERE email = $1", [data.toLowerCase()]);
             if(result.rows.length > 0){
                 const dbData = result.rows[0];
                 res.json(dbData);
