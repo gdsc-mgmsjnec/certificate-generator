@@ -15,7 +15,7 @@ function Hero(props){
     async function handleSubmit(event){
         event.preventDefault();
         try{
-            const result = await axios.get(import.meta.env.VITE_API_URL,{
+            const result = await axios.get("https://gdsc-cert.onrender.com/",{
                 params:{
                     "email":inutEmail
                 },
