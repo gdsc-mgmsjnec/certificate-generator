@@ -6,7 +6,11 @@ const API_key = "Pj_$jammy_techTeam_GDSC2024";
 
 
 function Hero(props){
-    const [inutEmail, getEmail] = useState("")
+    const [inutEmail, getEmail] = useState("");
+    const [disp, setloader]=useState({
+        loader: "none",
+        button: "block"
+    });
 
     function handleChange(event){
         getEmail(event.target.value)
@@ -14,6 +18,10 @@ function Hero(props){
 
     async function handleSubmit(event){
         event.preventDefault();
+        setloader({
+            loader: "block",
+            button: "none"
+        });
         try{
             const result = await axios.get("https://gdsc-cert.onrender.com/",{
                 params:{
@@ -26,6 +34,10 @@ function Hero(props){
             console.log(result.data);
             if(result.data){
                 let name=result.data.name;
+                setloader({
+                    loader: "none",
+                    button: "block"
+                });
                 props.getname(name);
                 props.download();
             }else{
@@ -33,6 +45,11 @@ function Hero(props){
             }
         }catch(err){
             alert("Error: Unauthorized Access")
+        }finally{
+            setloader({
+                loader: "none",
+                button: "block"
+            });
         }
     }
 
@@ -43,7 +60,8 @@ function Hero(props){
         </div>
         <form onSubmit={handleSubmit}>
             <input onChange={handleChange} type="email" name="email" id="email" value={inutEmail} placeholder="Enter your Email..." />
-            <button type='submit'>Submit</button>
+            <button type='submit' style={{display: (disp.button)}}>Submit</button>
+            <div className="loader" style={{display:disp.loader}}></div>
         </form>
     </main>
 }
