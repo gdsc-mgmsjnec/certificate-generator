@@ -6,6 +6,7 @@ import env from "dotenv"
 const app = express();
 const port = 3000;
 env.config();
+app.use(express.urlencoded({extended: true}));
 const db = new pg.Client({
     user: process.env.PG_USER,
     host: process.env.PG_HOST,
@@ -38,6 +39,32 @@ app.get("/", async (req, res) =>{
         }
     }else{
         res.status(401).json({"Error":"Unauthorised, Access not Allowed"})
+    }
+});
+
+app.post("/add", async (req, res) => {
+    const auth = req.headers['x-access-token'];
+    if(auth === apiKey){
+        const email = req.body.email;
+        const name = req.body.name;
+        try{
+            const result = await db.query("SELECT email FROM enrollements WHERE email = $1", [email]);
+            if(result.rows.length > 0){
+                res.json({
+                    "Error":"Email already exists"
+                });
+            }else{
+                const data = await db.query("INSERT INTO enrollements (name, email) VALUES ($1, $2) RETURNING *", [name, email]);
+                res.json({
+                    "Success":"Enrollement Successful",
+                    "Data":data.rows[0],
+                });
+            }
+        }catch(err){
+            res.json({"Error":"Something went wrong"});
+        }
+    }else{
+        res.json({"Error":"Unauthorized, Access Dined"});
     }
 })
 
